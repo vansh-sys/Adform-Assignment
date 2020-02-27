@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBox should render search component 1`] = `
+Array [
+  <input
+    className="search-box"
+    name="name"
+    onChange={
+      Object {
+        "onSearch": [MockFunction],
+      }
+    }
+    placeholder="Search By Name"
+    type="text"
+  />,
+]
+`;
