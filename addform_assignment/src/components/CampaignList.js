@@ -137,7 +137,8 @@ export class CampaignList extends React.Component{
                     <AgGridReact
                         columnDefs={columnDefs}  
                         rowData={rowData}
-                        frameworkComponents={frameworkComponents}>
+                        frameworkComponents={frameworkComponents}
+			suppressHorizontalScroll  false>		    
                     </AgGridReact>
                 </div>
 
