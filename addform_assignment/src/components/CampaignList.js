@@ -11,7 +11,7 @@ import addFormLogo from '../addform.png';
 import { createSelector } from 'reselect';
 import { SearchBox } from './SearchBox';
 
-class CampaignList extends React.Component{
+export class CampaignList extends React.Component{
     constructor()
     {
         super();
@@ -19,7 +19,10 @@ class CampaignList extends React.Component{
             isSearch : false,
             startDate: null,
             endDate : null,
-            dateFilter :false
+            dateFilter :false,
+            userList:[],
+            campaignList:[],
+            preparedList:[]
         }
     }
     componentDidMount(){
@@ -37,7 +40,9 @@ class CampaignList extends React.Component{
             this.props.searchByName(e.target.value)
             if(e.target.value==="" && this.state.dateFilter===false)
                 this.setState({isSearch:false})
-    }
+            else if(e.target.value==="" && this.state.dateFilter===true)
+                this.props.filterByDate(this.state.startDate,this.state.endDate,this.props.preparedList)
+            }
 
     prepareRowData=(users)=>{
         this.props.prepareRowData(users);
@@ -48,7 +53,7 @@ class CampaignList extends React.Component{
         this.setState({
             startDate : date,
             dateFilter: true
-        },this.props.filterByDate(date,this.state.endDate))
+        },this.props.filterByDate(date,this.state.endDate,this.props.campaignList))
         
         if(date===null && this.state.endDate===null && this.state.isSearch===false){
             this.setState({
@@ -61,7 +66,7 @@ class CampaignList extends React.Component{
         this.setState({
             endDate : date,
             dateFilter:true
-        },this.props.filterByDate(this.state.startDate,date))
+        },this.props.filterByDate(this.state.startDate,date,this.props.preparedList))
         
         if(this.state.startDate===null && date===null && this.state.isSearch===false){
             this.setState({
@@ -145,16 +150,18 @@ class CampaignList extends React.Component{
 
 const selectUserList = state => state.userList;
 const selectCampaigns = state => state.campaignList;
+const selectPreparedList = state => state.preparedList
 
 const selectCampaignUsers = createSelector(
-    [selectUserList,selectCampaigns],
-    (userList,campaignList) => {
-         return {userList,campaignList}
+    [selectUserList,selectCampaigns,selectPreparedList],
+    (userList,campaignList,preparedList) => {
+         return {userList,campaignList,preparedList}
     }
 )
 
 const mapStateToprops = (state) => {
     let data = selectCampaignUsers(state)
+    console.log("data returned",data)
     return data;
 }
 

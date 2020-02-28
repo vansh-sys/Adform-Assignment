@@ -23,10 +23,10 @@ export const searchByName = (name) => (dispatch) => {
     })
 }
 
-export const filterByDate = (startDate,endDate)=>(dispatch)=>{
+export const filterByDate = (startDate,endDate,campaignList)=>(dispatch)=>{
     dispatch({
         type: 'DATE_FILTER',
-        payload: {startDate,endDate}
+        payload: {startDate,endDate,campaignList}
     })
 }
 

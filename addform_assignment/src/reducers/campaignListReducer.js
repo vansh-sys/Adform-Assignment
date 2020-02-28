@@ -90,7 +90,7 @@ const initialState = {
 
 
 export function campaignListReducer (state = initialState, action) {
-    console.log(action)
+    console.log("action dispatched",action)
     switch (action.type) {
         case 'FETCH_CAMPAIGNS':
             if(action.payload){
@@ -106,7 +106,6 @@ export function campaignListReducer (state = initialState, action) {
             if(action.payload){
                     let users = action.payload
                     let campaignList = state.campaignList
-
                     let currentTime= new Date().getTime();
                     const checkTime=(campaign)=>{
                         let startTime = new Date(campaign.startDate).getTime()
@@ -142,7 +141,7 @@ export function campaignListReducer (state = initialState, action) {
         case 'ON_SEARCH':
             if(action.payload && action.payload!==""){
                 let updatedCampaignList = []
-                let currentCampaignList=[...state.campaignList]
+                let currentCampaignList=[...state.preparedList]
                 let searchKey=action.payload
                 currentCampaignList.map((campaign)=>{
                     if(campaign.name.toLowerCase().search(searchKey.toLowerCase())!==-1){
@@ -163,11 +162,11 @@ export function campaignListReducer (state = initialState, action) {
                 }
                 return state;
         case 'DATE_FILTER':
-            console.log("reducer",action.payload)
+            //console.log("reducer",action.payload)
             if(action.payload){
                 let startDate = action.payload.startDate
                 let endDate = action.payload.endDate
-                let currentCampaignList=[...state.preparedList]
+                let currentCampaignList=[...action.payload.campaignList]
                 let updatedCampaignList = []
                 if(startDate !== null && endDate === null)
                 {

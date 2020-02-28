@@ -1,5 +1,213 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CampaignList should render self & sub components 1`] = `
+Array [
+  <div>
+    <header
+      className="header"
+    >
+      <img
+        alt="test logo"
+        className="addFormLogo"
+        src="addform.png"
+      />
+    </header>
+    <SearchBox
+      onSearch={[Function]}
+    />
+    <span
+      className="dateFilter"
+    >
+      Filter (by date) :
+    </span>
+    <span
+      className="start-date"
+    >
+      <DatePicker
+        calendarIcon={
+          <svg
+            className="react-date-picker__calendar-button__icon react-date-picker__button__icon"
+            height={19}
+            stroke="black"
+            strokeWidth={2}
+            viewBox="0 0 19 19"
+            width={19}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              fill="none"
+              height="15"
+              width="15"
+              x="2"
+              y="2"
+            />
+            <line
+              x1="6"
+              x2="6"
+              y1="0"
+              y2="4"
+            />
+            <line
+              x1="13"
+              x2="13"
+              y1="0"
+              y2="4"
+            />
+          </svg>
+        }
+        className="datePicker"
+        clearIcon={
+          <svg
+            className="react-date-picker__clear-button__icon react-date-picker__button__icon"
+            height={19}
+            stroke="black"
+            strokeWidth={2}
+            viewBox="0 0 19 19"
+            width={19}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              x1="4"
+              x2="15"
+              y1="4"
+              y2="15"
+            />
+            <line
+              x1="15"
+              x2="4"
+              y1="4"
+              y2="15"
+            />
+          </svg>
+        }
+        dayPlaceholder="dd"
+        isOpen={null}
+        monthPlaceholder="mm"
+        name="startDate"
+        onChange={[Function]}
+        returnValue="start"
+        value={null}
+        yearPlaceholder="yyyy"
+      />
+    </span>
+    <span
+      className="end-date"
+    >
+      <DatePicker
+        calendarIcon={
+          <svg
+            className="react-date-picker__calendar-button__icon react-date-picker__button__icon"
+            height={19}
+            stroke="black"
+            strokeWidth={2}
+            viewBox="0 0 19 19"
+            width={19}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              fill="none"
+              height="15"
+              width="15"
+              x="2"
+              y="2"
+            />
+            <line
+              x1="6"
+              x2="6"
+              y1="0"
+              y2="4"
+            />
+            <line
+              x1="13"
+              x2="13"
+              y1="0"
+              y2="4"
+            />
+          </svg>
+        }
+        className="datePicker"
+        clearIcon={
+          <svg
+            className="react-date-picker__clear-button__icon react-date-picker__button__icon"
+            height={19}
+            stroke="black"
+            strokeWidth={2}
+            viewBox="0 0 19 19"
+            width={19}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              x1="4"
+              x2="15"
+              y1="4"
+              y2="15"
+            />
+            <line
+              x1="15"
+              x2="4"
+              y1="4"
+              y2="15"
+            />
+          </svg>
+        }
+        dayPlaceholder="dd"
+        isOpen={null}
+        monthPlaceholder="mm"
+        name="endDate"
+        onChange={[Function]}
+        returnValue="start"
+        value={null}
+        yearPlaceholder="yyyy"
+      />
+    </span>
+    <br />
+    <br />
+    <div
+      className="ag-theme-balham ag-grid-custom"
+    >
+      <AgGridReact
+        columnDefs={
+          Array [
+            Object {
+              "field": "name",
+              "filter": true,
+              "headerName": "Name",
+            },
+            Object {
+              "field": "userName",
+              "headerName": "User Name",
+            },
+            Object {
+              "field": "startDate",
+              "headerName": "Start Date",
+            },
+            Object {
+              "field": "endDate",
+              "headerName": "End Date",
+            },
+            Object {
+              "cellRenderer": "statusRederer",
+              "field": "status",
+              "headerName": "Status",
+            },
+            Object {
+              "field": "budget",
+              "headerName": "Budget",
+            },
+          ]
+        }
+        frameworkComponents={
+          Object {
+            "statusRederer": [Function],
+          }
+        }
+        rowData={Array []}
+      />
+    </div>
+  </div>,
+]
+`;
+
 exports[`SearchBox should render search component 1`] = `
 Array [
   <input
