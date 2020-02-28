@@ -121,11 +121,17 @@ export function campaignListReducer (state = initialState, action) {
                         else
                             campaign.status="InActive"
                         campaign.budget=new Intl.NumberFormat('en-GB', { notation: "compact" , compactDisplay: "long", style: 'currency', currency: 'USD' }).format(campaign.Budget);
+                        campaign.userName="Unknown User"
                         return true
                     })
+
                     users.map((user)=>{
-                        campaignList.find(campaign => campaign.userId === user.id).userName = user.name;
-                        campaignList.find(campaign => campaign.userId !== user.id).userName = "Unknown User";
+                        campaignList.map((campaign)=>{
+                            if(campaign.userId===user.id){
+                                campaign.userName=user.name
+                            }
+                            return true
+                        })
                         return true
                     })
 
@@ -234,7 +240,8 @@ export function campaignListReducer (state = initialState, action) {
                 }
 
             }
-        break;
+            return state;
+            
         default : 
             return state;
     }
