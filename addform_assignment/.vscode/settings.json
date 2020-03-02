@@ -1,3 +1,6 @@
 {
-    "eslint.alwaysShowStatus": true
+    "eslint.alwaysShowStatus": true,
+    "debug.node.autoAttach": "on",
+    "npm.enableRunFromFolder": true,
+    "npm.enableScriptExplorer": true
 }
